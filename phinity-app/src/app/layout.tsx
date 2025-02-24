@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: 'Synthetic data tooling for LLM developers',
 }
 
+export const dynamic = 'force-dynamic'
+
 export default function RootLayout({
   children,
 }: {

@@ -46,7 +46,7 @@ export default function Home() {
 
       {/* Use Cases Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-32">
-        <h2 className="text-3xl font-bold text-center mb-16">Use Cases</h2>
+        <h2 className="text-3xl font-serif text-center mb-16">Use Cases</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           <UseCaseCard 
             title="Custom Benchmark Generation"

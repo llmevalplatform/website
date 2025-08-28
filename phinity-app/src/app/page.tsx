@@ -1,71 +1,81 @@
-import { UseCaseCard } from "@/components/use-case-card"
-import { AnimatedLogo } from "@/components/animated-logo"
-import { DataTransformAnimation } from "@/components/data-transform-animation"
-import { WaitlistButton } from "@/components/waitlist-button"
+import React from 'react';
 
-export default function Home() {
+export default function PhinityLanding() {
   return (
-    <main className="relative flex flex-col items-center min-h-screen bg-background">
-      {/* Logo in absolute top left */}
-      <div className="absolute top-8 left-8">
-        <AnimatedLogo />
+    <div className="min-h-screen bg-white text-black font-['Inter',sans-serif] antialiased">
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        {/* Header */}
+        <div className="mb-12">
+          <h1 className="text-5xl md:text-6xl font-normal leading-tight mb-6 tracking-tight">
+            Build agents your users actually love
+          </h1>
+        </div>
+
+        {/* Main Content */}
+        <div className="space-y-6 text-gray-700 text-lg leading-relaxed max-w-3xl font-normal">
+          <p>
+            We are Phinity Labs, a company that unlocks an improvement flywheel for companies building with LLMs and agents. 
+            To do this, our first goal is to help companies understand how their agent behaves in the wild. 
+            We're launching our first product - <span className="text-black font-normal">Replay</span>.
+          </p>
+
+          <p>
+            Our infrastructure captures every production interaction with your agent—every prompt, every response, 
+            every failure. When you ship new tool or prompt, we replay thousands of curated user scenario edge 
+            cases against your changes. These replays generate actionable insights about what breaks, why it breaks, 
+            and which users would be affected. The test suite evolves with your users' patterns, growing from 
+            hundreds to thousands of real-world edge cases without any manual test writing.
+          </p>
+
+          <p>
+            Your worst production incidents become your strongest regression tests and your angriest users become 
+            your best QA team, so you don't ship the same bug twice.
+          </p>
+
+          <p>
+            Teams using Replay ship faster because they know exactly what will break before pushing to 
+            production. We eliminate the gap between how developers think agents work and how users actually 
+            experience them.
+          </p>
+
+          {/* Behavioral Diffs Section */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <h2 className="text-2xl font-normal text-black mb-6 italic">
+              From code diffs to behavioral diffs:
+            </h2>
+            
+            <div className="space-y-4">
+              <blockquote className="border-l-2 border-gray-300 pl-6 text-gray-600 italic font-normal">
+                "Deploy will fail for 12% of users, specifically those asking about international shipping."
+              </blockquote>
+              
+              <blockquote className="border-l-2 border-gray-300 pl-6 text-gray-600 italic font-normal">
+                "This change improves latency by 8% but introduces a 25% higher rate of hallucinations for legal queries."
+              </blockquote>
+              
+              <blockquote className="border-l-2 border-gray-300 pl-6 text-gray-600 italic font-normal">
+                "After switching to [model], you experienced +9% increased refusal rate. The model refuses to answer 
+                questions related to "financial advice" or "product comparisons" that the previous model handled correctly. 
+                You also experienced a -5% success rate for queries in Spanish and German."
+              </blockquote>
+              <p>
+                We make it easy to understand the tradeoffs of every prompt or tool change.
+              </p>
+            </div>
+          </div>
+
+          {/* About Phinity Labs Section */}
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <h2 className="text-2xl font-normal text-black mb-6">
+              About Phinity Labs
+            </h2>
+            <p className="text-gray-700 font-normal">
+              Our founders have helped train 340B+ parameter models at large foundation model labs, built specialized 
+              models and agents for chip design, healthcare, retail, and compliance.
+            </p>
+          </div>
+        </div>
       </div>
-
-      {/* Hero Section */}
-      <section className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen gap-16 px-4">
-        <div className="flex flex-col items-center pt-32">
-          <div className="space-y-8 text-center mb-16">
-            <h1 className="text-5xl font-serif tracking-tight text-center">
-              Be your own data vendor.
-            </h1>
-            <div className="space-y-2">
-              <p className="text-xl">
-                We are the function <span className="font-serif italic">ϕ</span>: <span className="font-serif">D</span> ↦ <span className="font-serif">D′</span>
-              </p>
-              <p className="text-lg">
-                where <span className="font-serif">D</span> is your original dataset, and <span className="font-serif">D′</span> is its optimized, high-fidelity counterpart.
-              </p>
-            </div>
-          </div>
-          
-          <div className="mb-12">
-            <DataTransformAnimation />
-          </div>
-
-          <div className="space-y-8 text-center">
-            <div className="max-w-[42rem]">
-              <p className="text-lg">
-                We democratize synthetic data for everyone with open-source tooling for general use cases, code generation for data-scarce languages, tool use, and soon, multimodal capabilities like browser use.
-              </p>
-            </div>
-
-            <WaitlistButton url="https://forms.fillout.com/t/6vMHbGQYpQus" />
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-32">
-        <h2 className="text-3xl font-serif text-center mb-16">Use Cases</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-          <UseCaseCard 
-            title="Custom Benchmark Generation"
-            description="Generate realistic, diverse test cases to stress-test the model before production."
-          />
-          <UseCaseCard 
-            title="Automated Annotation"
-            description="Align a judge to annotate like an SME with <30 demonstrations - evaluate and curate data at scale."
-          />
-          <UseCaseCard 
-            title="Reasoning Chain + QA Generation"
-            description="Generate reasoning chain + QA pairs from documents to improve reasoning, RAG, and function-calling performance on domain-specific tasks."
-          />
-          <UseCaseCard 
-            title="Preference Data Generation"
-            description="Isolate failed test cases and responses from production and generate preference datasets to target these failure modes."
-          />
-        </div>
-      </section>
-    </main>
-  )
+    </div>
+  );
 }
